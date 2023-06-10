@@ -1,5 +1,20 @@
 # JogoDaVelha
 Jogo da Velha (Console Mode) criado com Python
+O jogo foi desenvolvido apenas com o intuito de praticar programação com a linguagem Python.
+
+Boas práticas como criação de classes ou responsabilidade única de funçõoes ou afins, não foram aplicadas neste jogo
+Algumas linhas de código deverão ser melhoradas ao decorrer das implementações.
+
+Cabe-se ressaltar que o jogo só rodará adequadamente no console do 'Windows', pois será possível realizar a limpeza da tela corretamente.
+Outros terminais também podem ser utilizados, tais como, o próprio IDLE do Python (porém sem a limpeza da tela) ou o Terminal do Linux.
+Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Windows (versão Windows 10 Home Single Language 22H2 x64)
+
+## Para executar no console
+- É necessário que baixe o arquivo 'Jogo Da Velha.py' e coloque em alguma pasta de sua preferência
+- Após isso abra o 'Prompt de Comando' do Windows ou pressione 'Windows + R' e digite 'CMD'
+- É necessário a versão do Python 2x ou 3x instalada adequadamente no computador e com o PATH do Python alocado no System32 para que o comando seja reconhecido adequadamente
+- Com isso basta apenas passar o comando 'python "Jogo da Velha.py"' ou simplemente "Jogo da Velha.py" no CMD
+
 
 ## Menu principal (default)
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/f55047c9-cdb5-45ce-bc6e-d4e2e874925c)
