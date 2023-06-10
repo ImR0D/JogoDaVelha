@@ -43,22 +43,6 @@ POSSIBLES_POSITION = {
     "BOTTOM_RIGHT": stage[9][9]
 }
 
-
-
-"""
-WIN_CONDITION = {
-    1: {"TOP_1": stage[1][1], "TOP_2": stage[1][5], "TOP_3": stage[1][9]},              # TOP               HORIZONTAL
-    2: {"MIDDLE_1": stage[5][1], "MIDDLE_2": stage[5][5], "MIDDLE_3": stage[5][9]},     # MIDDLE            HORIZONTAL
-    3: {"BOTTOM_1": stage[9][1], "BOTTOM_2": stage[9][5], "BOTTOM_3": stage[9][9]},     # BOTTOM            HORIZONTAL
-    4: {"LEFT_1": stage[1][1], "LEFT_2": stage[5][1], "LEFT_3": stage[9][1]},           # LEFT              VERTICAL
-    5: {"CENTER_1": stage[1][5], "CENTER_2": stage[5][5], "CENTER_3": stage[9][5]},     # CENTER            VERTICAL
-    6: {"RIGHT_1": stage[1][9], "RIGHT_2": stage[5][9], "RIGHT_3": stage[9][9]},        # RIGHT             VERTICAL
-    7: {"LTRUPD_1": stage[1][1], "LTRUPD_2": stage[5][5], "LTRUPD_3": stage[9][9]},     # LEFT-TO-RIGHT     DIAGONAL UP-DOWN
-    8: {"LTRDUP_1": stage[9][1], "LTRDUP_2": stage[5][5], "LTRDUP_3": stage[1][9]},     # LEFT-TO-RIGHT     DIAGONAL DOWN-UP
-}
-"""
-
-
 def reset():
     stage[1][1] = " "
     stage[1][5] = " "
