@@ -1,4 +1,4 @@
-import os
+import os, random
 
 DIFFICULTY_MODE = ["PVP", "PVM_EASY", "PVM_MEDIUM"]
 PLAYERS_NAME = ["JOGADOR 1", "JOGADOR 2", "MAQUINA"]
@@ -60,7 +60,6 @@ def reset():
     winner = "None"
 
 
-
 # Posiciona a tag do jogador no tabuleiro e verifica se a posição está ou não preenchida
 #
 # setPosition("TOP_LEFT", PLAYERS_NAME[0])
@@ -103,12 +102,33 @@ def setPosition(pos, player):
         elif pos == "BOTTOM_RIGHT" and stage[9][9] == " ":
             stage[9][9] = PLAYERS_TAG[player]
             filledValues.append(stage[9][9])
-        else:
-            return False
     else:
         return False
 
     return True
+
+
+def isValidPosition(commandKey):
+    match(commandKey):
+        case 1:
+            return True if (stage[9][1] == " ") else False      # BOTTOM_LEFT
+        case 2:
+            return True if (stage[9][5] == " ") else False      # BOTTOM_MIDDLE
+        case 3:
+            return True if (stage[9][9] == " ") else False      # BOTTOM_RIGHT
+        case 4:
+            return True if (stage[5][1] == " ") else False      # CENTER_LEFT
+        case 5:
+            return True if (stage[5][5] == " ") else False      # CENTER_MIDDLE
+        case 6:
+            return True if (stage[5][9] == " ") else False      # CENTER_RIGHT
+        case 7:
+            return True if (stage[1][1] == " ") else False      # TOP_LEFT
+        case 8:
+            return True if (stage[1][5] == " ") else False      # TOP_MIDDLE
+        case 9:
+            return True if (stage[1][9] == " ") else False      # TOP_RIGHT
+
 
 def isFieldsFilled():
     return True if (len(filledValues) >= 9) else False
@@ -158,8 +178,6 @@ def sendCommand(command, player):
                 return setPosition("TOP_MIDDLE", player)
             case 9:
                 return setPosition("TOP_RIGHT", player)
-    else:
-        print("Comando inválido, ou usuário não encontrado!")
 
 
 # Limpa a tela do console (Apenas via terminal/console)
@@ -247,7 +265,7 @@ def openGameModeMenu():
     │                                                                           │
     │                    1)  Jogador vs Jogador     -- Padrão                   │
     │                                                                           │
-    │                    2)  Jogador vs IA (Easy)   -- Ainda não implementado!  │
+    │                    2)  Jogador vs IA (Easy)                               │
     │                                                                           │
     │                    3)  Jogador vs IA (Medium) -- Ainda não implementado!  │
     │                                                                           │
@@ -256,13 +274,13 @@ def openGameModeMenu():
     └───────────────────────────────────────────────────────────────────────────┘
     """
     print(menu)
+    global mode
     option = int(input("Selecione uma opção: "))
     if (option == 1):
         mode = DIFFICULTY_MODE[0]
         gameBoard()
     if (option == 2):
-        #mode = DIFFICULTY_MODE[1]
-        print("Ainda não implementado!")
+        mode = DIFFICULTY_MODE[1]
         gameBoard()
     if (option == 3):
         #mode = DIFFICULTY_MODE[2]
@@ -332,9 +350,13 @@ def setNewSession():
 def alterPlayer():
     global current_player
     if (current_player == PLAYERS_NAME[0]):
-        current_player = PLAYERS_NAME[1]
+        if (mode == DIFFICULTY_MODE[0]):        # Check if mode is PVP
+            current_player = PLAYERS_NAME[1]
+        if (not mode == DIFFICULTY_MODE[0]):    # Check if mode is PVM
+            current_player = PLAYERS_NAME[2]
     else:
         current_player = PLAYERS_NAME[0]
+        
 
 
 WIN_CONDITION = []
@@ -368,6 +390,11 @@ def hasWinner():
     return False
 
 
+def getIACommand_easy():
+    return random.randrange(1, 9)
+
+
+
 def gameBoard():
     setNewSession()
     while True:
@@ -382,10 +409,20 @@ def gameBoard():
         hasWinnerGame = hasWinner()
         fieldsFilled = isFieldsFilled()
         if (not fieldsFilled and winner == "None"):
-            command = int(input("\n\nComando: "))
-            isSend = sendCommand(command, current_player)
+            valid = False
+            if current_player == PLAYERS_NAME[2]:
+                while (not valid):
+                    cmdIA = getIACommand_easy()
+                    valid = isValidPosition(cmdIA)
+                isSend = sendCommand(cmdIA, current_player)
+            else:
+                while (not valid):
+                    command = int(input("\n\nComando: "))
+                    valid = isValidPosition(command)
+                isSend = sendCommand(command, current_player)
             if (isSend):
                 alterPlayer()
+                isSend = False
         elif winner == "None":
             drawGame()
             playAgain()
