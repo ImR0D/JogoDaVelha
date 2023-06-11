@@ -12,7 +12,8 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 ## Para executar no console
 - É necessário que baixe o arquivo 'Jogo Da Velha.py' e coloque em alguma pasta de sua preferência
 - Após isso abra o 'Prompt de Comando' do Windows ou pressione 'Windows + R' e digite 'CMD'
-- É necessário a versão do Python 2x ou 3x instalada adequadamente no computador e com o PATH do Python alocado no System32 para que o comando seja reconhecido adequadamente
+- É necessário a versão do Python 3x (preferencia) instalada adequadamente no computador e com o PATH do Python alocado no System32 para que o comando seja reconhecido adequadamente, no entanto, pode ser que na versão 2.x funcione, também, porém não foi testado.
+- A versão utilizada para testes e execução do jogo foi na versão 3.11.0 do Python
 - Com isso basta apenas passar o comando 'python "Jogo da Velha.py"' ou simplemente "Jogo da Velha.py" no CMD
 
 
