@@ -23,11 +23,11 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/3368f972-b53f-4c6d-a451-5cc08f55532b)
 
 ## Menu principal (modos de jogo)
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/f4ed78d0-d267-4c03-86e1-4e1af53e6be0)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/85b60e68-3d61-4062-9677-ea727896dab2)
 
 Obs.: Em posteriores atualizações, será adicionado os modos de jogos: 
-- 1. Jogador vs IA (Easy) 
-- 2. Jogador vs IA (Medium)
+- 1. Jogador vs IA (Easy)............... Implementado? [:heavy_check_mark:]
+- 2. Jogador vs IA (Medium)....... Implementado? [:x:]
 
 ## Jogo da Velha
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/96b9aeba-0b3b-4534-98f9-aa79dc1aee75)
@@ -49,7 +49,11 @@ Com isso é possível pressionar qualquer tecla do teclado para jogar novamente,
 A partir daqui você é redirecionado para o menu principal, caso tenha optado pela opção de continuar jogando.
 
 ### Caso haja um vencedor na partida será exibida a tela:
-1 - ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/e2d0ed37-4689-42c4-bdbe-84327f5085df)
-2 - ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/a08e4ec6-8d6b-4299-bcd6-9a5e1abaf07c)
+
+Tela 1:
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/e2d0ed37-4689-42c4-bdbe-84327f5085df)
+
+Tela 2:
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/a08e4ec6-8d6b-4299-bcd6-9a5e1abaf07c)
 
 Obs.: Conforme visto na imagem 2, assim como caso o jogo fique empatado, haverá opção para retornar ao menu principal ou simplesmente sair do jogo
