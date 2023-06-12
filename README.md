@@ -1,4 +1,4 @@
-# JogoDaVelha
+# Jogo Da Velha
 Jogo da Velha (Console Mode) criado com Python
 O jogo foi desenvolvido apenas com o intuito de praticar programação com a linguagem Python.
 
@@ -27,8 +27,9 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/85b60e68-3d61-4062-9677-ea727896dab2)
 
 Obs.: Em posteriores atualizações, será adicionado os modos de jogos: 
-- 1. Jogador vs IA (Easy)............... Implementado? [:heavy_check_mark:]
-- 2. Jogador vs IA (Medium)....... Implementado? [:x:]
+1. Jogador vs Máquina (Easy)............... Implementado? [:heavy_check_mark:]
+2. Jogador vs Máquina (Medium)....... Implementado? [:heavy_check_mark:]
+3. Jogador vs Máquina (Hard).............. Implementado? [:x:]
 
 ## Jogo da Velha
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/96b9aeba-0b3b-4534-98f9-aa79dc1aee75)
