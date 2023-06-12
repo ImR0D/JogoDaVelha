@@ -16,7 +16,7 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 - A versão utilizada para testes e execução do jogo foi na versão 3.11.0 do Python
 - Com isso basta apenas passar o comando 'python "Jogo da Velha.py"' ou simplemente "Jogo da Velha.py" no CMD
 
-:Edit: ERROS E BUGS NO CÓDIGO SERÃO TRATADOS E ATUALIZADOS ASSIM QUE POSSÍVEL, TAL QUAL, TODA REFATORAÇÃO DO CÓDIGO ASSIM QUE CONVENIENTE
+[:exclamation:] : ERROS E BUGS NO CÓDIGO SERÃO TRATADOS E ATUALIZADOS ASSIM QUE POSSÍVEL, TAL QUAL, TODA REFATORAÇÃO DO CÓDIGO ASSIM QUE CONVENIENTE
 
 ## Menu principal (default)
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/f55047c9-cdb5-45ce-bc6e-d4e2e874925c)
