@@ -23,25 +23,25 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/3368f972-b53f-4c6d-a451-5cc08f55532b)
 
 ## Menu principal (modos de jogo)
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/85b60e68-3d61-4062-9677-ea727896dab2)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/93fd3b22-6c39-4739-bad3-01fc01160c67)
 
 Obs.: Em posteriores atualizações, será adicionado os modos de jogos: 
 1. Jogador vs Máquina (Easy)............... Implementado? [:heavy_check_mark:]
 2. Jogador vs Máquina (Medium)....... Implementado? [:heavy_check_mark:]
 3. Jogador vs Máquina (Hard).............. Implementado? [:x:]
 
-## Jogo da Velha
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/96b9aeba-0b3b-4534-98f9-aa79dc1aee75)
+## In-game
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/f105c42e-2a24-43f8-86c8-0698abac5603)
 
-O jogo é composto de uma informação no topo da tela, indicando os comandos disponíveis
-Em seguida é exibido a sessão atual (jogadores ativos) e o modo de jogo
+O jogo é composto de uma informação no topo da tela, indicando os comandos disponíveis.<br/>
+Em seguida é exibido a sessão atual (jogadores ativos) e o modo de jogo.<br/>
 E abaixo é exibido o jogador atual que está realizando a jogada
 
 ### Ao realizar a passagem de um comando a tela é atualizada:
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/d5da58a1-25b7-475d-8cf1-9ac2d46a894a)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/eeee8a3b-0771-4734-a787-75b79c42e348)
 
 Após o envio do comando, o jogador é atualizado e a posição indicada pelo comando é atualizada no tabuleiro do jogo
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/6c99f84c-60cf-43d6-bfe6-53a2a06cfd4c)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/0f40b2be-c1a2-4322-b479-ec9c0852538e)
 
 Caso o jogo fique empatado (não tenha uma sequência de três X ou O no tabuleiro de um jogador específico) é exibido a tela:
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/6d7c0443-a9c6-44d5-accb-bc5da83ecd04)
@@ -52,7 +52,7 @@ A partir daqui você é redirecionado para o menu principal, caso tenha optado p
 ### Caso haja um vencedor na partida será exibida a tela:
 
 Tela 1:
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/e2d0ed37-4689-42c4-bdbe-84327f5085df)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/36b80231-e814-4dee-8b76-4e3ed2866dc7)
 
 Tela 2:
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/a08e4ec6-8d6b-4299-bcd6-9a5e1abaf07c)
