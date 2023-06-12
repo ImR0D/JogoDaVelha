@@ -1,5 +1,5 @@
 # Jogo Da Velha
-Jogo da Velha (Console Mode) criado com Python
+Jogo da Velha (Console Mode) criado com Python.<br>
 O jogo foi desenvolvido apenas com o intuito de praticar programação com a linguagem Python.
 
 Boas práticas como criação de classes ou responsabilidade única de funçõoes ou afins, não foram aplicadas neste jogo
