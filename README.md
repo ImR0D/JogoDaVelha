@@ -1,20 +1,18 @@
 # Jogo Da Velha
-Jogo da Velha (Console Mode) criado com Python.<br>
-O jogo foi desenvolvido apenas com o intuito de praticar programação com a linguagem Python.
+Jogo da Velha (Console Mode) criado com Python. O jogo foi desenvolvido apenas com o intuito de praticar programação com a linguagem Python.
 
-Boas práticas como criação de classes ou responsabilidade única de funçõoes ou afins, não foram aplicadas neste jogo
-Algumas linhas de código deverão ser melhoradas ao decorrer das implementações.
+Boas práticas de estruturação, não foram aplicadas neste jogo <strong>até o presente momento</strong>. Algumas linhas de código deverão ser melhoradas ao decorrer das implementações. Assim como a refatoração do código em momentos oportunos.
 
-Cabe-se ressaltar que o jogo só rodará adequadamente no console do 'Windows', pois será possível realizar a limpeza da tela corretamente.
-Outros terminais também podem ser utilizados, tais como, o próprio IDLE do Python (porém sem a limpeza da tela) ou o Terminal do Linux.
-Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Windows (versão Windows 10 Home Single Language 22H2 x64)
+Cabe-se ressaltar que o jogo só rodará adequadamente no console do 'Windows', pois será possível realizar a limpeza da tela corretamente e o redimensionamento do console.
+Outros terminais também podem ser utilizados, tais como, o próprio IDLE do Python (porém sem a limpeza da tela ou recursos providos do 'cmd' do Windows) ou o Terminal do Linux.
+Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Windows (versão Windows 10 Home Single Language 22H2 x64), portanto, não foi possível determinar o funcionamento correto em outros S.O
 
 ## Para executar no console
 - É necessário que baixe o arquivo 'Jogo Da Velha.py' e coloque em alguma pasta de sua preferência
 - Após isso abra o 'Prompt de Comando' do Windows ou pressione 'Windows + R' e digite 'CMD'
-- É necessário a versão do Python 3x (preferencia) instalada adequadamente no computador e com o PATH do Python alocado no System32 para que o comando seja reconhecido adequadamente, no entanto, pode ser que na versão 2.x funcione, também, porém não foi testado.
+- É necessário a versão do Python 3x (de preferencia) instalada adequadamente no computador e com o PATH do Python alocado no System32 para que o comando seja reconhecido adequadamente, no entanto, pode ser que na versão 2.x funcione, também, porém não foi testado em versões anteriores.
 - A versão utilizada para testes e execução do jogo foi na versão 3.11.0 do Python
-- Com isso basta apenas passar o comando 'python "Jogo da Velha.py"' ou simplemente "Jogo da Velha.py" no CMD
+- Com isso basta apenas passar o comando [<strong><i>python "Jogo da Velha.py"</i></strong>] ou simplemente <strong><i>"Jogo da Velha.py"</i></strong> no CMD
 
 [:exclamation:] : ERROS E BUGS NO CÓDIGO SERÃO TRATADOS E ATUALIZADOS ASSIM QUE POSSÍVEL, TAL QUAL, TODA REFATORAÇÃO DO CÓDIGO ASSIM QUE CONVENIENTE
 
