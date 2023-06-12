@@ -23,12 +23,13 @@ Não houve testes em plataformas adjacentes, apenas, no Sistema Operacional Wind
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/3368f972-b53f-4c6d-a451-5cc08f55532b)
 
 ## Menu principal (modos de jogo)
-![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/93fd3b22-6c39-4739-bad3-01fc01160c67)
+![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/80992668-f561-42c1-abc3-d69930b9d4c5)
 
 Obs.: Em posteriores atualizações, será adicionado os modos de jogos: 
 1. Jogador vs Máquina (Easy)............... Implementado? [:heavy_check_mark:]
 2. Jogador vs Máquina (Medium)....... Implementado? [:heavy_check_mark:]
-3. Jogador vs Máquina (Hard).............. Implementado? [:x:]
+3. Jogador vs Máquina (Hard).............. Implementado? [:heavy_check_mark:]
+4. Jogador vs Máquina (Insane)........... Implementado? [:x:]
 
 ## In-game
 ![image](https://github.com/ImR0D/JogoDaVelha/assets/97006482/f105c42e-2a24-43f8-86c8-0698abac5603)
