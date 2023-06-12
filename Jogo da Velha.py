@@ -1,6 +1,6 @@
 import os, random
 
-DIFFICULTY_MODE = ["PVP", "PVM_EASY", "PVM_MEDIUM"]
+DIFFICULTY_MODE = ["PVP", "PVM_EASY", "PVM_MEDIUM", "PVM_HARD"]
 PLAYERS_NAME = ["JOGADOR 1", "JOGADOR 2", "MAQUINA"]
 PLAYERS_TAG = {"JOGADOR 1": "X", "JOGADOR 2" : "O", "MAQUINA": "O"}
 
@@ -270,7 +270,9 @@ def openGameModeMenu():
     │                                                                           │
     │                    3)  Jogador vs Máquina (Medium)                        │
     │                                                                           │
-    │                  # 4)  Jogador vs Máquina (Hard)                          │
+    │                    4)  Jogador vs Máquina (Hard)                          │
+    │                                                                           │
+    │                  # 5)  Jogador vs Máquina (Insane)                        │
     │                                                                           │
     │                    0)  Voltar ao menu                                     │
     │                                                                           │
@@ -292,8 +294,12 @@ def openGameModeMenu():
         mode = DIFFICULTY_MODE[2]
         gameBoard()
     elif (option == 4):
-        #mode = DIFFICULTY_MODE[2]
-        print("Modo ainda não implementado")
+        mode = DIFFICULTY_MODE[3]
+        gameBoard()
+    elif (option == 5):
+        #mode = DIFFICULTY_MODE[4]
+        print("Modo de jogo não implementado")
+        input()
         #gameBoard()
     elif (option == 0):
         openMenuView()
@@ -354,7 +360,7 @@ def setNewSession():
     current_player = PLAYERS_NAME[0]
     if (mode == DIFFICULTY_MODE[0]):
         session_players = [PLAYERS_NAME[0], PLAYERS_NAME[1]]
-    elif (mode == DIFFICULTY_MODE[1] or mode == DIFFICULTY_MODE[2]):
+    elif (mode != DIFFICULTY_MODE[0]):
         session_players = [PLAYERS_NAME[0], PLAYERS_NAME[2]]
 
 
@@ -368,7 +374,6 @@ def alterPlayer():
     else:
         current_player = PLAYERS_NAME[0]
         
-
 
 WIN_CONDITION = []
 def hasWinner():
@@ -401,12 +406,12 @@ def hasWinner():
     return False
 
 
-def getIACommand_easy():
+def getIACommand_Easy():
     return random.randrange(1, 9)
 
 
 def getIACommand_Medium():
-    if (stage[1][1] == "X" and stage[1][9] == "X" and stage[1][5] != " "):    # TOP_LEFT + TOP_RIGHT = return TOP_MIDDLE
+    if (stage[1][1] == "X" and stage[1][9] == "X" and stage[1][5] == " "):    # TOP_LEFT + TOP_RIGHT = return TOP_MIDDLE
         return 8
     elif (stage[5][1] == "X" and stage[5][9] == "X" and stage[5][5] == " "):  # CENTER_LEFT + CENTER_RIGHT = return CENTER_MIDDLE
         return 5
@@ -422,6 +427,59 @@ def getIACommand_Medium():
         return 5
     elif (stage[9][1] == "X" and stage[1][9] == "X" and stage[5][5] == " "):  # BOTTOM_LEFT + TOP_RIGHT = return CENTER_MIDDLE
         return 5
+    else:
+        return random.randrange(1, 9)
+
+
+def getIACommand_Hard():
+    if (stage[1][1] == "X" and stage[1][9] == "X" and stage[1][5] == " "):    # TOP_LEFT + TOP_RIGHT = return TOP_MIDDLE
+        return 8
+    elif (stage[5][1] == "X" and stage[5][9] == "X" and stage[5][5] == " "):  # CENTER_LEFT + CENTER_RIGHT = return CENTER_MIDDLE
+        return 5
+    elif (stage[9][1] == "X" and stage[9][9] == "X" and stage[9][5] == " "):  # BOTTOM_LEFT + BOTTOM_RIGHT = return BOTTOM_MIDDLE
+        return 2
+    elif (stage[1][1] == "X" and stage[9][1] == "X" and stage[5][1] == " "):  # TOP_LEFT + BOTTOM_LEFT = return CENTER_MIDDLE
+        return 4
+    elif (stage[1][5] == "X" and stage[9][5] == "X" and stage[5][5] == " "):  # TOP_MIDDLE + BOTTOM_MIDDLE = return CENTER_MIDDLE
+        return 5
+    elif (stage[1][9] == "X" and stage[9][9] == "X" and stage[5][9] == " "):  # TOP_RIGHT + BOTTOM_RIGHT = return CENTER_RIGHT
+        return 6
+    elif (stage[1][1] == "X" and stage[9][9] == "X" and stage[5][5] == " "):  # TOP_LEFT + BOTTOM_RIGHT = return CENTER_MIDDLE
+        return 5
+    elif (stage[9][1] == "X" and stage[1][9] == "X" and stage[5][5] == " "):  # BOTTOM_LEFT + TOP_RIGHT = return CENTER_MIDDLE
+        return 5
+    elif (stage[1][1] == "X" and stage[1][5] == "X" and stage[1][9] == " "):   # TOP_LEFT + TOP_MIDDLE = return TOP_RIGHT
+        return 9
+    elif (stage[1][5] == "X" and stage[1][9] == "X" and stage[1][1] == " "):   # TOP_MIDDLE + TOP_RIGHT = return TOP_LEFT
+        return 7
+    elif (stage[5][1] == "X" and stage[5][5] == "X" and stage[5][9] == " "):   # CENTER_LEFT + CENTER_MIDDLE = return CENTER_RIGHT
+        return 6
+    elif (stage[5][5] == "X" and stage[5][9] == "X" and stage[5][1] == " "):   # CENTER_MIIDDLE + CENTER_RIGHT = return CENTER_LEFT
+        return 4
+    elif (stage[9][1] == "X" and stage[9][5] == "X" and stage[9][9] == " "):   # BOTTOM_LEFT + BOTTOM_MIDDLE = return BOTTOM_RIGHT
+        return 3
+    elif (stage[9][5] == "X" and stage[9][9] == "X" and stage[9][1] == " "):   # BOTTOM_MIDDLE + BOTTOM_RIGHT = return BOTTOM_LEFT
+        return 1
+    elif (stage[1][1] == "X" and stage[5][1] == "X" and stage[9][1] == " "):   # TOP_LEFT + CENTER_LEFT = return BOTTOM_LEFT
+        return 1
+    elif (stage[5][1] == "X" and stage[9][1] == "X" and stage[1][1] == " "):   # CENTER_LEFT + BOTTOM_LEFT = return TOP_LEFT
+        return 7
+    elif (stage[1][5] == "X" and stage[5][5] == "X" and stage[9][5] == " "):   # TOP_MIDDLE + CENTER_MIDDLE = return BOTTOM_MIDDLE
+        return 2
+    elif (stage[5][5] == "X" and stage[9][5] == "X" and stage[1][5] == " "):   # CENTER_MIDDLE + BOTTOM_MIDDLE = return TOP_MIDDLE
+        return 8
+    elif (stage[1][9] == "X" and stage[5][9] == "X" and stage[9][9] == " "):   # TOP_RIGHT + CENTER_RIGHT = return BOTTOM_RIGHT
+        return 3
+    elif (stage[5][9] == "X" and stage[9][9] == "X" and stage[1][9] == " "):   # CENTER_RIGHT + BOTTOM_RIGHT = return TOP_RIGHT
+        return 9
+    elif (stage[1][1] == "X" and stage[5][5] == "X" and stage[9][9] == " "):   # TOP_LEFT + CENTER_MIDDLE = return BOTTOM_RIGHT
+        return 3
+    elif (stage[5][5] == "X" and stage[9][9] == "X" and stage[1][1] == " "):   # CENTER_MIDDLE + BOTTOM_RIGHT = return TOP_LEFT
+        return 7
+    elif (stage[9][1] == "X" and stage[5][5] == "X" and stage[1][9] == " "):   # BOTTOM_LEFT + CENTER_MIDDLE = return TOP_RIGHT
+        return 9
+    elif (stage[5][5] == "X" and stage[1][9] == "X" and stage[9][1] == " "):   # CENTER_MIDDLE + TOP_RIGHT = return BOTTOM_LEFT
+        return 1
     else:
         return random.randrange(1, 9)
 
@@ -444,12 +502,17 @@ def gameBoard():
             if current_player == PLAYERS_NAME[2]:
                 if mode == DIFFICULTY_MODE[1]:
                     while (not valid):
-                        cmdIA = getIACommand_easy()
+                        cmdIA = getIACommand_Easy()
                         valid = isValidPosition(cmdIA)
                     isSend = sendCommand(cmdIA, current_player) 
                 elif mode == DIFFICULTY_MODE[2]:
                     while (not valid):
                         cmdIA = getIACommand_Medium()
+                        valid = isValidPosition(cmdIA)
+                    isSend = sendCommand(cmdIA, current_player)
+                elif mode == DIFFICULTY_MODE[3]:
+                    while (not valid):
+                        cmdIA = getIACommand_Hard()
                         valid = isValidPosition(cmdIA)
                     isSend = sendCommand(cmdIA, current_player)
             else:
