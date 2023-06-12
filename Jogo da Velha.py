@@ -192,9 +192,10 @@ def setConsoleSize():
 # Comandos básicos de jogabilidade
 def showCommands():
     print("Comandos: \n")
+    print("\t0 - Sair do Jogo\n")
     print("\t7 - Topo-Esquerda    |   8 - Topo-Meio    |   9 - Topo-Direita")
     print("\t4 - Centro-Esquerda  |   5 - Centro-Meio  |   6 - Centro-Direita")
-    print("\t1 - Baixo-Esquerda   |   2 - Baixo-Meio   |   3 - Baixo-Direita\n")
+    print("\t1 - Baixo-Esquerda   |   2 - Baixo-Meio   |   3 - Baixo-Direita")
 
 
 # Pergunta se o usuário deseja continuar jogando
@@ -263,14 +264,19 @@ def openGameModeMenu():
     │                                                                           │
     ├───────────────────────────────────────────────────────────────────────────┤
     │                                                                           │
-    │                    1)  Jogador vs Jogador     -- Padrão                   │
+    │                    1)  Jogador vs Jogador                                 │
     │                                                                           │
-    │                    2)  Jogador vs IA (Easy)                               │
+    │                    2)  Jogador vs Máquina (Easy)                          │
     │                                                                           │
-    │                    3)  Jogador vs IA (Medium) -- Ainda não implementado!  │
+    │                    3)  Jogador vs Máquina (Medium)                        │
     │                                                                           │
-    │                    4)  Voltar ao menu                                     │
+    │                  # 4)  Jogador vs Máquina (Hard)                          │
     │                                                                           │
+    │                    0)  Voltar ao menu                                     │
+    │                                                                           │
+    ├───────────────────────────────────────────────────────────────────────────┤
+    │  Legenda:                                                                 │
+    │           # Ainda não implementado                                        │
     └───────────────────────────────────────────────────────────────────────────┘
     """
     print(menu)
@@ -279,15 +285,20 @@ def openGameModeMenu():
     if (option == 1):
         mode = DIFFICULTY_MODE[0]
         gameBoard()
-    if (option == 2):
+    elif (option == 2):
         mode = DIFFICULTY_MODE[1]
         gameBoard()
-    if (option == 3):
-        #mode = DIFFICULTY_MODE[2]
-        print("Ainda não implementado!")
+    elif (option == 3):
+        mode = DIFFICULTY_MODE[2]
         gameBoard()
     elif (option == 4):
+        #mode = DIFFICULTY_MODE[2]
+        print("Modo ainda não implementado")
+        #gameBoard()
+    elif (option == 0):
         openMenuView()
+    else:
+        print("Opção inválida.")
 
 # Menu do jogador vencedor
 def gameWinner(player):
@@ -394,6 +405,26 @@ def getIACommand_easy():
     return random.randrange(1, 9)
 
 
+def getIACommand_Medium():
+    if (stage[1][1] == "X" and stage[1][9] == "X" and stage[1][5] != " "):    # TOP_LEFT + TOP_RIGHT = return TOP_MIDDLE
+        return 8
+    elif (stage[5][1] == "X" and stage[5][9] == "X" and stage[5][5] == " "):  # CENTER_LEFT + CENTER_RIGHT = return CENTER_MIDDLE
+        return 5
+    elif (stage[9][1] == "X" and stage[9][9] == "X" and stage[9][5] == " "):  # BOTTOM_LEFT + BOTTOM_RIGHT = return BOTTOM_MIDDLE
+        return 2
+    elif (stage[1][1] == "X" and stage[9][1] == "X" and stage[5][1] == " "):  # TOP_LEFT + BOTTOM_LEFT = return CENTER_MIDDLE
+        return 4
+    elif (stage[1][5] == "X" and stage[9][5] == "X" and stage[5][5] == " "):  # TOP_MIDDLE + BOTTOM_MIDDLE = return CENTER_MIDDLE
+        return 5
+    elif (stage[1][9] == "X" and stage[9][9] == "X" and stage[5][9] == " "):  # TOP_RIGHT + BOTTOM_RIGHT = return CENTER_RIGHT
+        return 6
+    elif (stage[1][1] == "X" and stage[9][9] == "X" and stage[5][5] == " "):  # TOP_LEFT + BOTTOM_RIGHT = return CENTER_MIDDLE
+        return 5
+    elif (stage[9][1] == "X" and stage[1][9] == "X" and stage[5][5] == " "):  # BOTTOM_LEFT + TOP_RIGHT = return CENTER_MIDDLE
+        return 5
+    else:
+        return random.randrange(1, 9)
+
 
 def gameBoard():
     setNewSession()
@@ -411,14 +442,21 @@ def gameBoard():
         if (not fieldsFilled and winner == "None"):
             valid = False
             if current_player == PLAYERS_NAME[2]:
-                while (not valid):
-                    cmdIA = getIACommand_easy()
-                    valid = isValidPosition(cmdIA)
-                isSend = sendCommand(cmdIA, current_player)
+                if mode == DIFFICULTY_MODE[1]:
+                    while (not valid):
+                        cmdIA = getIACommand_easy()
+                        valid = isValidPosition(cmdIA)
+                    isSend = sendCommand(cmdIA, current_player) 
+                elif mode == DIFFICULTY_MODE[2]:
+                    while (not valid):
+                        cmdIA = getIACommand_Medium()
+                        valid = isValidPosition(cmdIA)
+                    isSend = sendCommand(cmdIA, current_player)
             else:
                 while (not valid):
                     command = int(input("\n\nComando: "))
                     valid = isValidPosition(command)
+                    if (command == 0): return False
                 isSend = sendCommand(command, current_player)
             if (isSend):
                 alterPlayer()
@@ -437,4 +475,9 @@ def gameBoard():
 
 
 if __name__ == "__main__":
-        openMenuView()
+    while True:
+        try:
+            openMenuView()
+        except ValueError:
+            input("Opção inválida")
+            openMenuView()
